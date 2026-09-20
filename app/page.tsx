@@ -2,41 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ArrowDown, ArrowRight, Code2, Mail, Menu, X, Check, Copy, Pause, Play, Layers, Workflow, ShieldCheck, Braces, Sparkles, ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import OrbitGame from "./orbit-game";
 import { projects, categories, type Project } from "./projects";
 
-function Field({ paused }: { paused:boolean }) {
- const ref=useRef<HTMLCanvasElement>(null);
- useEffect(()=>{
-  const canvas=ref.current;if(!canvas)return;const ctx=canvas.getContext("2d");if(!ctx)return;
-  const media=matchMedia("(prefers-reduced-motion: reduce)");let frame=0,w=0,h=0,t=0,last=0,visible=!document.hidden,px=0,py=0,tx=0,ty=0;
-  const resize=()=>{const b=canvas.getBoundingClientRect();w=b.width;h=b.height;const d=Math.min(devicePixelRatio||1,2);canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0)};
-  const draw=(now=0)=>{
-   if(!paused&&!media.matches){t+=Math.min((now-last)||16,40)*.06;px+=(tx-px)*.04;py+=(ty-py)*.04;}last=now;
-   ctx.clearRect(0,0,w,h);const r=Math.min(w,h)*.29,cx=w*.51+px*16,cy=h*.5+py*12;
-   const glow=ctx.createRadialGradient(cx,cy,0,cx,cy,r*1.65);glow.addColorStop(0,"#ffd87565");glow.addColorStop(1,"#ffd87500");ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
-   // Orbital telemetry trails surround the rotating neural mesh.
-   for(let k=0;k<3;k++){
-    ctx.save();ctx.translate(cx,cy);ctx.rotate(k*1.05+.2+py*.08);ctx.scale(1,.45+k*.13);
-    ctx.beginPath();ctx.arc(0,0,r*(1.25+k*.13),0,Math.PI*2);ctx.strokeStyle="#81530e25";ctx.lineWidth=.8;ctx.stroke();
-    const angle=t*.009*(k%2?-1:1)+k*2;
-    for(let j=0;j<28;j++){const a=angle-j*.018;ctx.beginPath();ctx.arc(Math.cos(a)*r*(1.25+k*.13),Math.sin(a)*r*(1.25+k*.13),j===0?3:1.8,0,Math.PI*2);ctx.fillStyle=`rgba(133,78,8,${(1-j/28)*.8})`;ctx.fill();}ctx.restore();
-   }
-   const n=w<400?230:340,pts:{x:number;y:number;z:number}[]=[];
-   for(let i=0;i<n;i++){const a=i*2.399963,y=1-2*i/(n-1),s=Math.sqrt(1-y*y),x=Math.cos(a)*s,z=Math.sin(a)*s,rot=t*.004+px*.2,xx=x*Math.cos(rot)+z*Math.sin(rot),zz=-x*Math.sin(rot)+z*Math.cos(rot),tilt=.35+py*.12;pts.push({x:cx+xx*r,y:cy+(y*Math.cos(tilt)-zz*Math.sin(tilt))*r,z:y*Math.sin(tilt)+zz*Math.cos(tilt)});}
-   for(let i=0;i<n;i++){const p=pts[i];for(let j=i+1;j<n;j++){const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<r*.23&&Math.abs(p.z-q.z)<.3){ctx.strokeStyle=`rgba(118,75,13,${(1-d/(r*.23))*.24*(p.z+1.4)})`;ctx.lineWidth=.65;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}
-    const pulse=Math.pow(Math.max(0,Math.sin(i*.17-t*.035)),12);ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.6,(p.z+1.6)*.8)+pulse,0,Math.PI*2);ctx.fillStyle=`rgba(${pulse>.5?"190,111,8":"99,66,17"},${.25+(p.z+1)*.3})`;ctx.fill();
-   }
-   ctx.save();ctx.translate(cx,cy);ctx.rotate(-.4);ctx.beginPath();ctx.ellipse(0,0,r*1.05,r*.28,0,0,Math.PI*2);ctx.strokeStyle="#bf851748";ctx.setLineDash([3,8]);ctx.lineDashOffset=-t*.3;ctx.stroke();ctx.restore();
-   if(!paused&&!media.matches&&visible)frame=requestAnimationFrame(draw);
-  };
-  const observer=new ResizeObserver(()=>{resize();if(paused||media.matches||!visible)draw()});observer.observe(canvas);resize();draw();
-  const pointer=(e:PointerEvent)=>{const b=canvas.getBoundingClientRect();tx=(e.clientX-b.left)/b.width*2-1;ty=(e.clientY-b.top)/b.height*2-1};const leave=()=>{tx=ty=0};
-  canvas.addEventListener("pointermove",pointer);canvas.addEventListener("pointerleave",leave);
-  const restart=()=>{cancelAnimationFrame(frame);last=0;if(visible)draw()};const visibility=()=>{visible=!document.hidden;restart()};document.addEventListener("visibilitychange",visibility);media.addEventListener("change",restart);
-  return()=>{cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener("pointermove",pointer);canvas.removeEventListener("pointerleave",leave);document.removeEventListener("visibilitychange",visibility);media.removeEventListener("change",restart)};
- },[paused]);
- return <canvas ref={ref} className="field-canvas" aria-hidden="true"/>;
-}
 function Diagram({kind}:{kind:string}){
  if(kind==="yundai")return <div className="diagram finance-diagram"><div className="diagram-top"><span><i/> FINANCING INTELLIGENCE</span><span>ARCHITECTURE / 01</span></div><div className="profile-node"><span className="node-icon"><Layers size={22}/></span><div><small>INPUT</small><strong>经营画像</strong></div><span className="node-state">结构化</span></div><div className="connection"/><div className="engine-row"><div className="engine"><ShieldCheck size={20}/><small>DETERMINISTIC</small><strong>规则引擎</strong><span>产品准入 · 候选排序</span></div><div className="engine ai-engine"><Sparkles size={20}/><small>CONSTRAINED AI</small><strong>辅助分析</strong><span>场景选择 · 输出校验</span></div></div><div className="connection"/><div className="result-node"><Check size={18}/><span>可解释报告</span><span className="review-label">顾问复核</span></div><div className="diagram-foot"><span>RULES FIRST. AI WITHIN REACH.</span><span>流程示意</span></div></div>;
  if(kind==="geo")return <div className="diagram content-diagram"><div className="diagram-top"><span><i/> CONTENT WORKFLOW</span><span>ARCHITECTURE / 02</span></div><div className="paper-stack"><div className="paper-back"/><div className="paper-front"><span className="paper-kicker">SOURCE → STORY</span><div className="paper-heading">每一段内容，<br/>都有据可循。</div><div className="paper-line"/><div className="paper-line short"/><div className="paper-label"><ShieldCheck size={15}/> 事实一致性检查</div><div className="scan-line"/></div><div className="floating-tag"><Check size={14}/> 质量门禁</div></div><div className="pipeline-mini"><span>素材</span><ChevronRight size={15}/><span>生成</span><ChevronRight size={15}/><span>校验</span><ChevronRight size={15}/><span>发布</span></div><div className="diagram-foot"><span>GENERATE. CHECK. DELIVER.</span><span>流程示意</span></div></div>;
@@ -56,7 +24,7 @@ export default function Home(){
   <a className="skip-link" href="#main">跳至主要内容</a>
   <header className="header"><div className="nav-wrap"><a className="brand" href="#main" aria-label="小杨作品集首页">Y<span>·</span><span className="brand-name">YANG<span>AI APPLICATION ENGINEER</span></span></a><nav className={menu?"nav-links open":"nav-links"} aria-label="主导航">{[["精选案例","#work"],["项目库","#library"],["关于我","#about"]].map(([t,h])=><a key={h} href={h} onClick={()=>setMenu(false)}>{t}</a>)}<a className="nav-contact" href="#contact" onClick={()=>setMenu(false)}>聊聊机会 <ArrowUpRight size={16}/></a></nav><button className="menu-toggle" aria-label={menu?"关闭导航":"打开导航"} aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></div></header>
   <main id="main" className="site-shell">
-   <section className="hero"><div className="hero-text"><div className="eyebrow"><i/> AI APPLICATIONS & ENGINEERING</div><h1>让 AI 的能力，<br/><em>成为业务的日常。</em></h1><p className="hero-copy">我是小杨。聚焦大模型应用、业务自动化与数据工程，<br/>把复杂的问题，做成清晰、可靠、可使用的产品。</p><div className="hero-actions"><a className="button" href="#work">探索精选案例 <ArrowUpRight size={19}/></a><a className="text-link" href="https://github.com/s1166921-png" target="_blank" rel="noreferrer"><Code2 size={17}/> GitHub <ArrowUpRight size={14}/></a></div><div className="hero-note"><span>LLM 工作流</span><span>业务系统</span><span>机器学习实验</span></div></div><div className="hero-art"><Field paused={paused}/><div className="orbit-label top">01 / IDEAS INTO SYSTEMS</div><div className="orbit-label bottom"><span className="live-dot"/> HUMAN × AI × ENGINEERING</div><button className="motion-toggle" onClick={()=>setPaused(!paused)} aria-label={paused?"播放页面动画":"暂停页面动画"} aria-pressed={paused}>{paused?<Play size={14}/>:<Pause size={14}/>}</button></div><div className="hero-bottom"><span>跨境电商场景 · 从需求到交付</span><a href="#work">SCROLL TO EXPLORE <ArrowDown size={14}/></a><span>PORTFOLIO / 2026</span></div></section>
+   <section className="hero"><div className="hero-text"><div className="eyebrow"><i/> AI APPLICATIONS & ENGINEERING</div><h1>让 AI 的能力，<br/><em>成为业务的日常。</em></h1><p className="hero-copy">我是小杨。聚焦大模型应用、业务自动化与数据工程，<br/>把复杂的问题，做成清晰、可靠、可使用的产品。</p><div className="hero-actions"><a className="button" href="#work">探索精选案例 <ArrowUpRight size={19}/></a><a className="text-link" href="https://github.com/s1166921-png" target="_blank" rel="noreferrer"><Code2 size={17}/> GitHub <ArrowUpRight size={14}/></a></div><div className="hero-note"><span>LLM 工作流</span><span>业务系统</span><span>机器学习实验</span></div></div><div className="hero-art"><OrbitGame paused={paused}/><button className="motion-toggle" onClick={()=>setPaused(!paused)} aria-label={paused?"播放页面动画":"暂停页面动画"} aria-pressed={paused}>{paused?<Play size={14}/>:<Pause size={14}/>}</button></div><div className="hero-bottom"><span>跨境电商场景 · 从需求到交付</span><a href="#work">SCROLL TO EXPLORE <ArrowDown size={14}/></a><span>PORTFOLIO / 2026</span></div></section>
    <div className="expertise-strip"><span>把 AI 接进业务的每一步</span><div><Braces size={18}/> BUILD</div><div><Workflow size={18}/> CONNECT</div><div><ShieldCheck size={18}/> VALIDATE</div><div><Layers size={18}/> DELIVER</div></div>
    <section id="work" className="section work-section"><div className="section-heading reveal"><div><p className="eyebrow">01 / SELECTED WORK</p><h2>不止于想法。<br/><span>更在于如何实现。</span></h2></div><p>四个切面，看见我如何连接<br/>模型能力、工程设计与真实业务。</p></div>
     {featured.map((p,i)=><article key={p.id} className={"feature-project reveal "+p.color+(i%2?" reversed":"")}><button className="project-visual" aria-label={"查看"+p.title+"案例"} onClick={()=>open(p)}><Diagram kind={p.id}/><span className="visual-open"><ArrowUpRight size={20}/></span></button><div className="project-story"><div className="project-topline"><span className="project-number">{p.number} —</span><span>{p.category}</span><span className="status"><i/>{p.status}</span></div><p className="project-english">{p.en}</p><h3>{p.title}</h3><p className="project-tagline">{p.tagline}</p><p className="project-summary">{p.summary}</p><div className="project-stats"><div><strong>{p.metric}</strong><span>{p.metricLabel}</span></div><div><strong>{p.second}</strong><span>{p.secondLabel}</span></div></div><div className="tags">{p.stack.map(t=><span key={t}>{t}</span>)}</div><button className="case-link" onClick={()=>open(p)}>阅读项目案例 <ArrowUpRight size={18}/></button></div></article>)}
@@ -69,6 +37,7 @@ export default function Home(){
   <Dialog open={!!active} onOpenChange={v=>{if(!v)close()}}><DialogContent className="case-dialog">{active&&<><div className="dialog-kicker">{active.category} <span>{active.status}</span></div><DialogTitle className="dialog-title">{active.title}</DialogTitle><DialogDescription className="dialog-description">{active.summary}</DialogDescription><div className="tags">{active.stack.map(s=><span key={s}>{s}</span>)}</div>{active.flow&&<div className="case-flow">{active.flow.map((s,i)=><div key={s}><small>0{i+1}</small><span>{s}</span>{i<active.flow!.length-1&&<ArrowRight size={16}/>}</div>)}</div>}<div className="case-block"><span>THE CHALLENGE</span><h3>要解决的问题</h3><p>{active.problem}</p></div><div className="case-block"><span>THE APPROACH</span><h3>系统如何工作</h3><p>{active.solution}</p></div><div className="case-block"><span>KEY DECISIONS</span><h3>关键工程选择</h3><ul>{active.decisions.map(d=><li key={d}>{d}</li>)}</ul></div>{active.evidence.length>0&&<div className="evidence-links">{active.evidence.map(([label,url])=><a key={url} href={url} target="_blank" rel="noreferrer">{label}<ArrowUpRight size={17}/></a>)}</div>}<p className="case-boundary">{active.boundary}</p><a className="case-contact" href="mailto:249562189@qq.com"><Mail size={16}/> 交流这个项目 <ArrowUpRight size={16}/></a></>}</DialogContent></Dialog>
  </div>
 }
+
 
 
 
