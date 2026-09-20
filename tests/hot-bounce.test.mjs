@@ -1,0 +1,18 @@
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+const html=readFileSync('public/hot-bounce/index.html','utf8');
+const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+assert.equal(scripts.length,1);new vm.Script(scripts[0][1]);
+const core=html.split('// PHYSICS_START')[1].split('// PHYSICS_END')[0];
+const ctx=vm.createContext({});vm.runInContext(core+';globalThis.api={newRun,tick,tapRun,segmentDistance,FLOOR,BOOST};',ctx);
+const {newRun,tick,tapRun,segmentDistance,FLOOR,BOOST}=ctx.api;
+const g=newRun(),orb={x:0,y:g.y+.2,z:0,red:false};tick(g,[orb],0);assert.equal(g.bonus,100);assert.equal(g.vy,BOOST);tick(g,[orb],0);assert.equal(g.bonus,100);
+const red=newRun();tick(red,[{x:0,y:red.y+.2,z:0,red:true}],0);assert.equal(red.dead,true);
+const bounce=newRun();bounce.vy=-.3;tick(bounce,[],0);assert.equal(bounce.y,FLOOR);assert.ok(bounce.vy>0);
+const fall=newRun();fall.peak=fall.y+24;tick(fall,[],0);assert.equal(fall.dead,true);
+assert.equal(segmentDistance({x:0,y:5,z:0},{x:0,y:0,z:0},{x:0,y:10,z:0}),0);
+const air=newRun();air.y+=3;tapRun(air);assert.ok(air.offset>0);assert.ok(air.buffer>0);
+const a=newRun();tick(a,[],1);assert.ok(a.offset>0);assert.equal(newRun().bonus,0);
+assert.ok(html.includes('three@0.128.0'));assert.ok(html.includes('cdn.tailwindcss.com'));assert.ok(!/\.(mp3|wav|gltf|fbx|png|jpg)["']/i.test(html));
+console.log('PASS: inline JS syntax, boost, score-once, hazard, bounce, fall, swept collision, air input, steer, reset, CDN versions and procedural assets');
