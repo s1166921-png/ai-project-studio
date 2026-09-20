@@ -1,3 +1,3 @@
 import type { NextConfig } from 'next';
-const nextConfig: NextConfig = { output: 'export', trailingSlash: true, basePath: process.env.GITHUB_PAGES === 'true' ? '/ai-project-studio' : '' };
+const nextConfig: NextConfig = { output: 'export', trailingSlash: true };
 export default nextConfig;

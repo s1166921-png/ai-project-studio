@@ -26,7 +26,7 @@ jobs:
           GITHUB_PAGES: 'true'
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/client
+          path: out/github-pages
   deploy:
     environment:
       name: github-pages
@@ -37,5 +37,6 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
 
 

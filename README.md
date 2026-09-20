@@ -38,4 +38,5 @@ GitHub Actions 在 main 更新时构建与发布。GITHUB_PAGES=true 时使用 /
 
 
 ## GitHub Pages 发布
-当前站点从 `gh-pages` 分支发布。更新源码后，使用 Node 22，设置 `GITHUB_PAGES=true` 执行构建，将 `dist/client` 内容发布至该分支。`docs/pages-workflow.example.yml` 为自动部署模板；具备 workflow 权限时可移入 `.github/workflows/pages.yml` 并将 Pages 切换至 GitHub Actions。
+当前站点从 `gh-pages` 分支发布。更新源码后，使用 Node 22，执行 `npm run build` 和 `node scripts/prepare-github.mjs`，将 `out/github-pages` 内容发布至该分支。`docs/pages-workflow.example.yml` 为自动部署模板；具备 workflow 权限时可移入 `.github/workflows/pages.yml` 并将 Pages 切换至 GitHub Actions。
+
