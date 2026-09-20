@@ -5,20 +5,35 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { projects, categories, type Project } from "./projects";
 
 function Field({ paused }: { paused:boolean }) {
- const ref = useRef<HTMLCanvasElement>(null);
- useEffect(() => {
+ const ref=useRef<HTMLCanvasElement>(null);
+ useEffect(()=>{
   const canvas=ref.current;if(!canvas)return;const ctx=canvas.getContext("2d");if(!ctx)return;
-  const media=matchMedia("(prefers-reduced-motion: reduce)");let frame=0,w=0,h=0,t=0,visible=true;
-  const resize=()=>{const box=canvas.getBoundingClientRect();w=box.width;h=box.height;const d=Math.min(devicePixelRatio||1,2);canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0)};
-  const draw=()=>{ctx.clearRect(0,0,w,h);const r=Math.min(w,h)*.34,cx=w*.51,cy=h*.5;const pts:{x:number;y:number;z:number}[]=[];
-   for(let i=0;i<420;i++){const a=i*2.399963,y=1-2*i/419,s=Math.sqrt(1-y*y);const x=Math.cos(a)*s,z=Math.sin(a)*s;const rot=t*.0025;const xx=x*Math.cos(rot)+z*Math.sin(rot),zz=-x*Math.sin(rot)+z*Math.cos(rot);const yy=y*Math.cos(.35)-zz*Math.sin(.35),depth=y*Math.sin(.35)+zz*Math.cos(.35);pts.push({x:cx+xx*r,y:cy+yy*r,z:depth});}
-   for(let i=0;i<pts.length;i++){const p=pts[i];for(let j=i+1;j<pts.length;j++){const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<r*.19&&Math.abs(p.z-q.z)<.25){ctx.strokeStyle="rgba(156,227,181,"+((1-d/(r*.19))*.14*(p.z+1.6))+")";ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.7,(p.z+1.8)*.85),0,Math.PI*2);ctx.fillStyle="rgba(188,245,197,"+(.22+(p.z+1)*.35)+")";ctx.fill();}
-   if(!paused&&!media.matches&&visible){t++;frame=requestAnimationFrame(draw);}
+  const media=matchMedia("(prefers-reduced-motion: reduce)");let frame=0,w=0,h=0,t=0,last=0,visible=!document.hidden,px=0,py=0,tx=0,ty=0;
+  const resize=()=>{const b=canvas.getBoundingClientRect();w=b.width;h=b.height;const d=Math.min(devicePixelRatio||1,2);canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0)};
+  const draw=(now=0)=>{
+   if(!paused&&!media.matches){t+=Math.min((now-last)||16,40)*.06;px+=(tx-px)*.04;py+=(ty-py)*.04;}last=now;
+   ctx.clearRect(0,0,w,h);const r=Math.min(w,h)*.29,cx=w*.51+px*16,cy=h*.5+py*12;
+   const glow=ctx.createRadialGradient(cx,cy,0,cx,cy,r*1.65);glow.addColorStop(0,"#ffd87565");glow.addColorStop(1,"#ffd87500");ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
+   // Orbital telemetry trails surround the rotating neural mesh.
+   for(let k=0;k<3;k++){
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(k*1.05+.2+py*.08);ctx.scale(1,.45+k*.13);
+    ctx.beginPath();ctx.arc(0,0,r*(1.25+k*.13),0,Math.PI*2);ctx.strokeStyle="#81530e25";ctx.lineWidth=.8;ctx.stroke();
+    const angle=t*.009*(k%2?-1:1)+k*2;
+    for(let j=0;j<28;j++){const a=angle-j*.018;ctx.beginPath();ctx.arc(Math.cos(a)*r*(1.25+k*.13),Math.sin(a)*r*(1.25+k*.13),j===0?3:1.8,0,Math.PI*2);ctx.fillStyle=`rgba(133,78,8,${(1-j/28)*.8})`;ctx.fill();}ctx.restore();
+   }
+   const n=w<400?230:340,pts:{x:number;y:number;z:number}[]=[];
+   for(let i=0;i<n;i++){const a=i*2.399963,y=1-2*i/(n-1),s=Math.sqrt(1-y*y),x=Math.cos(a)*s,z=Math.sin(a)*s,rot=t*.004+px*.2,xx=x*Math.cos(rot)+z*Math.sin(rot),zz=-x*Math.sin(rot)+z*Math.cos(rot),tilt=.35+py*.12;pts.push({x:cx+xx*r,y:cy+(y*Math.cos(tilt)-zz*Math.sin(tilt))*r,z:y*Math.sin(tilt)+zz*Math.cos(tilt)});}
+   for(let i=0;i<n;i++){const p=pts[i];for(let j=i+1;j<n;j++){const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<r*.23&&Math.abs(p.z-q.z)<.3){ctx.strokeStyle=`rgba(118,75,13,${(1-d/(r*.23))*.24*(p.z+1.4)})`;ctx.lineWidth=.65;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}
+    const pulse=Math.pow(Math.max(0,Math.sin(i*.17-t*.035)),12);ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.6,(p.z+1.6)*.8)+pulse,0,Math.PI*2);ctx.fillStyle=`rgba(${pulse>.5?"190,111,8":"99,66,17"},${.25+(p.z+1)*.3})`;ctx.fill();
+   }
+   ctx.save();ctx.translate(cx,cy);ctx.rotate(-.4);ctx.beginPath();ctx.ellipse(0,0,r*1.05,r*.28,0,0,Math.PI*2);ctx.strokeStyle="#bf851748";ctx.setLineDash([3,8]);ctx.lineDashOffset=-t*.3;ctx.stroke();ctx.restore();
+   if(!paused&&!media.matches&&visible)frame=requestAnimationFrame(draw);
   };
   const observer=new ResizeObserver(()=>{resize();if(paused||media.matches||!visible)draw()});observer.observe(canvas);resize();draw();
-  const onVisibility=()=>{visible=!document.hidden;cancelAnimationFrame(frame);if(visible)draw()};document.addEventListener("visibilitychange",onVisibility);
-  const onMotion=()=>{cancelAnimationFrame(frame);draw()};media.addEventListener("change",onMotion);
-  return()=>{cancelAnimationFrame(frame);observer.disconnect();document.removeEventListener("visibilitychange",onVisibility);media.removeEventListener("change",onMotion)};
+  const pointer=(e:PointerEvent)=>{const b=canvas.getBoundingClientRect();tx=(e.clientX-b.left)/b.width*2-1;ty=(e.clientY-b.top)/b.height*2-1};const leave=()=>{tx=ty=0};
+  canvas.addEventListener("pointermove",pointer);canvas.addEventListener("pointerleave",leave);
+  const restart=()=>{cancelAnimationFrame(frame);last=0;if(visible)draw()};const visibility=()=>{visible=!document.hidden;restart()};document.addEventListener("visibilitychange",visibility);media.addEventListener("change",restart);
+  return()=>{cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener("pointermove",pointer);canvas.removeEventListener("pointerleave",leave);document.removeEventListener("visibilitychange",visibility);media.removeEventListener("change",restart)};
  },[paused]);
  return <canvas ref={ref} className="field-canvas" aria-hidden="true"/>;
 }
@@ -54,6 +69,7 @@ export default function Home(){
   <Dialog open={!!active} onOpenChange={v=>{if(!v)close()}}><DialogContent className="case-dialog">{active&&<><div className="dialog-kicker">{active.category} <span>{active.status}</span></div><DialogTitle className="dialog-title">{active.title}</DialogTitle><DialogDescription className="dialog-description">{active.summary}</DialogDescription><div className="tags">{active.stack.map(s=><span key={s}>{s}</span>)}</div>{active.flow&&<div className="case-flow">{active.flow.map((s,i)=><div key={s}><small>0{i+1}</small><span>{s}</span>{i<active.flow!.length-1&&<ArrowRight size={16}/>}</div>)}</div>}<div className="case-block"><span>THE CHALLENGE</span><h3>要解决的问题</h3><p>{active.problem}</p></div><div className="case-block"><span>THE APPROACH</span><h3>系统如何工作</h3><p>{active.solution}</p></div><div className="case-block"><span>KEY DECISIONS</span><h3>关键工程选择</h3><ul>{active.decisions.map(d=><li key={d}>{d}</li>)}</ul></div>{active.evidence.length>0&&<div className="evidence-links">{active.evidence.map(([label,url])=><a key={url} href={url} target="_blank" rel="noreferrer">{label}<ArrowUpRight size={17}/></a>)}</div>}<p className="case-boundary">{active.boundary}</p><a className="case-contact" href="mailto:249562189@qq.com"><Mail size={16}/> 交流这个项目 <ArrowUpRight size={16}/></a></>}</DialogContent></Dialog>
  </div>
 }
+
 
 
 
