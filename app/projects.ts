@@ -514,7 +514,7 @@ export type ProjectLink = {label:string;url:string;kind:string;note:string};
 const toolDetails: Record<string,Partial<Project>> = {
  yundai:{audience:'跨境企业经营者 · 融资顾问',experience:['查看渐进式经营资料采集方式','理解产品候选与规则解释','查看 AI 分析如何交给顾问复核'],accessNote:'可查看公开实现与运行说明；线上演示地址待补充。'},
  geo:{title:'GEO 生成式内容平台',audience:'内容运营 · 品牌与增长团队',summary:'将选题、素材约束、AI 生成、质量门禁与发布观测串联，支持面向生成式搜索的内容运营。',experience:['了解素材到生成的完整流程','查看质量检查与有限修复机制','访问内容站，查看最终发布形态'],evidence:[['GEO 系统源码','https://github.com/s1166921-png/meiou-geo-system']],boundary:'GEO 平台与微信文章工具是两个独立项目。内容站展示发布结果，不等同于运营后台；不将内容发布量等同于 AI 引用效果。',accessNote:'可访问公开内容站；运营后台入口待补充。',links:[{label:'查看已发布内容',url:'https://news.meiouyuncang.com/',kind:'内容站',note:'展示内容交付形态，非平台管理后台'}]},
- hs:{title:'HS 编码与全球关税查询',audience:'跨境运营 · 报关与物流人员',experience:['按编码或分类定位商品信息','对比标准化后的关税字段','了解查询结果如何进入到岸成本计算'],accessNote:'在线查询入口已核对；部分管理功能需要登录。',links:[{label:'打开 HS 编码查询',url:'http://47.106.189.214/',kind:'在线工具',note:'HTTP 站点 · 管理功能需要登录'}]},
+ hs:{title:'HS 编码与全球关税查询',audience:'跨境运营 · 报关与物流人员',experience:['按编码或分类定位商品信息','对比标准化后的关税字段','了解查询结果如何进入到岸成本计算'],accessNote:'微信小程序名称：美鸥的编码工具箱。快捷方式入口需要微信支持；无法唤起时请在微信内搜索名称。网页版的部分管理功能需要登录。',links:[{label:'尝试在微信中打开',url:'weixin://launchapplet/?app_id=wx56d61d5aefd6a6b5',kind:'微信小程序',note:'美鸥的编码工具箱 · 需安装微信，浏览器可能限制唤起；未验证跨设备兼容性'},{label:'打开 HS 编码网页版',url:'http://47.106.189.214/',kind:'在线工具',note:'HTTP 站点 · 管理功能需要登录'}]},
  news:{title:'微信文章自动化工作台',audience:'公众号编辑 · 内容运营',experience:['从热点素材发起文章改写','检查新增数字、日期与复制片段','将结果导出为微信兼容 HTML'],flow:['热点与素材','AI 改写','规则核对','微信 HTML 导出'],accessNote:'可查看源码与本地运行方式；网页入口及公开文章样例待补充。'}
 };
 for(const project of projects)Object.assign(project,toolDetails[project.id]||{});
