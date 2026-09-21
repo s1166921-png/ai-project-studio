@@ -9,3 +9,7 @@ for(const name of await readdir(root)){
  await copyFile(join(root,name),join(root,id,'index.html'));
  try{await copyFile(join(root,id+'.rsc'),join(root,id,'index.rsc'))}catch(e){if(e.code!=='ENOENT')throw e}
 }
+
+await mkdir('dist/client/profile',{recursive:true});
+await copyFile('dist/client/profile.html','dist/client/profile/index.html');
+await copyFile('dist/client/profile.rsc','dist/client/profile/index.rsc');
