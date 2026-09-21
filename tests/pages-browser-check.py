@@ -35,6 +35,10 @@ with sync_playwright() as p:
  select=page.get_by_label('切换策略记录');select.select_option('competition');assert '-8.69%' in page.locator('.q-metrics').inner_text()
  select.select_option('momentum-0');assert page.locator('.q-chart svg').count()==0;assert '净值待补全' in page.locator('.q-no-history').inner_text()
  select.select_option('v17');assert page.locator('tbody tr').count()==24
+ select.select_option('v14');assert page.locator('tbody tr').count()==3;assert '-124.63' in page.locator('tbody').inner_text();assert '444.91' in page.locator('tbody').inner_text()
+ select.select_option('t0');assert page.locator('tbody tr').count()==4;assert '比例' in page.locator('tbody').inner_text()
+ select.select_option('overlay');assert page.locator('tbody tr').count()==5
+ select.select_option('forward');assert '暂无可用成交明细' in page.locator('.q-trades').inner_text()
  page.set_viewport_size({'width':390,'height':844});assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
  page.screenshot(path='out/quant-mobile.png',full_page=True)
  page.set_viewport_size({'width':1440,'height':1000});select.select_option('scalper');page.screenshot(path='out/quant-desktop.png',full_page=True)

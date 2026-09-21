@@ -3,7 +3,7 @@ Usage: python scripts/import-paper-trading.py --source <live_paper_trader direct
 """
 import argparse, csv, hashlib, json
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 
@@ -63,7 +63,7 @@ def import_data(root):
     add("competition", "TradingAgents · 组合竞赛盘", "迁移后曲线", 200000, pts[-1]["value"],pts[-1]["date"], "仅使用资金迁移后的 normalized 曲线；排除迁移前旧曲线。组合包含 T+0 子账户，不与子账户重复合计。稀疏快照之间的连线仅表示观测值变化。", pts)
     for id, filename, title, note in [("t0","tradingagents_t0_competition_account.json","TradingAgents · 独立 T+0","独立虚拟账户。仅展示最新权益快照；缺少完整历史，不计算历史回撤。"),("overlay","tradingagents_t0_overlay.json","TradingAgents · T+0 子账户","属于组合竞赛盘的子账户，已被组合覆盖，不能与组合叠加。")]:
         d=read("competition_state/"+filename)
-        add(id,title,"子账户快照" if id=="overlay" else "账户快照",d["initial_cash"],d["equity"],d["updated_at"][:10],note)
+        add(id,title,"子账户快照" if id=="overlay" else "账户快照",d["initial_cash"],d["equity"],d["updated_at"][:10],note, trades=[{"date":r["time"][:10],"time":r["time"],"symbol":r["symbol"],"version":"T+0", "shares":r["shares"],"pnl":None,"pnlPct":r.get("pnl_pct"),"reason":r.get("reason",r.get("side","未记录"))} for r in d.get("trades",[])])
     v17=read("scalping/state/v17/v17_carryover.json")
     logs=read("scalping/state/v17/v17_trade_journal.jsonl","jsonl")
     # Journal PnL excludes entry commission; do not label it net PnL or fabricate equity.
@@ -72,13 +72,26 @@ def import_data(root):
     add("v17","V17 · ML 筛选虚拟盘","账户快照",200000,equity,v17["date"],"最新持仓为空，以现金确认权益。交易表为日志卖出盈亏，已扣卖出佣金、未扣买入佣金，因此不能直接等同账户净收益。",trades=vt)
     for id, path, title in [("legacy","scalping_state/session_report.json","Scalper · 早期会话"),("v3","scalping/state/v3_session_report.json","Scalper · V3 会话"),("v14","scalping/state/v4_session_report.json","Scalper · V14 最新会话")]:
         d=read(path)
-        add(id,title,"会话快照",d["initial_cash"],d["final_equity"],d["timestamp"][:10],"单次会话表现，部分会话重置本金。与 Scalper 交易历史有重叠，不作为新增独立账户求和。")
+        add(id,title,"会话快照",d["initial_cash"],d["final_equity"],d["timestamp"][:10],"单次会话表现，部分会话重置本金。与 Scalper 交易历史有重叠，不作为新增独立账户求和。",trades=closed_positions([{**r,"date":datetime.fromtimestamp(r["exit_time"],timezone(timedelta(hours=8))).strftime("%Y-%m-%d"),"version":d.get("version","早期版本")} for r in d.get("trades",[])]))
     d=read("forward_state/paper_account.json")
     last=d["equity_history"][-1]
     add("forward","ETF · 前向模拟盘","账户快照",d["initial_cash"],last["total_equity"],last["date"][:10],"只有一个权益观测日；保留源文件 total_equity。源现金与市值字段无法直接勾稽，暂不据此重建净值历史。")
     multi=read("multi_strategy_state/multi_accounts.json")
     for i,(name,d) in enumerate(multi.items()):
         add("momentum-"+str(i),name,"待补净值",d["initial_cash"],None,"未记录", "已有现金与持仓记录，但 equity_history 为空，缺少估值价格。现金余额不等于账户权益，收益和回撤暂不可计算。")
+    for a in accounts:
+        if a["id"] in ["t0","overlay"]:
+            a["tradeNote"]="源日志只记录盈亏比例，未记录单笔金额及完整成本，金额显示 —；不从百分比反推净盈亏。"
+        elif a["id"]=="v17":
+            a["tradeNote"]="日志卖出盈亏已扣卖出佣金，未扣买入佣金。"
+        elif a["trades"]:
+            a["tradeNote"]="按持仓合并分批卖出并补扣买入佣金；按退出日期倒序展示。会话记录与 Scalper 历史重叠，不重复汇总。"
+        elif a["id"]=="competition":
+            a["tradeNote"]="当前组合文件提供持仓和权益，未提供可核对的核心组合逐笔成交；T+0 部分请切换至 T+0 子账户查看。"
+        else:
+            a["tradeNote"]="当前来源仅有持仓或权益信息，暂无可用成交明细；不把持仓快照当作已成交记录。"
+        for t in a["trades"]:
+            t.setdefault("pnlPct",None)
     return {"importedAt":datetime.now(timezone.utc).isoformat(),"accounts":accounts,"sources":sources,"excluded":["迁移前 competition 旧曲线及测试副本","分钟监控中的重复、滞后快照","aquant 与 ai-quant-product 的历史回测（不计为前向虚拟盘）","swing-executor 只有信号历史，未发现可用成交或净值"],"currency":"CNY"}
 
 if __name__ == "__main__":

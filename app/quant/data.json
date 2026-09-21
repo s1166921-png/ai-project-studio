@@ -1,5 +1,5 @@
 {
-  "importedAt": "2026-09-21T07:35:16.398378+00:00",
+  "importedAt": "2026-09-21T08:07:28.061919+00:00",
   "accounts": [
     {
       "id": "scalper",
@@ -126,7 +126,8 @@
           "pnl": 81.1108,
           "reason": "SESSION_END",
           "version": "早期版本",
-          "shares": 8600
+          "shares": 8600,
+          "pnlPct": null
         },
         {
           "date": "2026-07-17",
@@ -134,7 +135,8 @@
           "pnl": -77.7389,
           "reason": "SESSION_END",
           "version": "早期版本",
-          "shares": 5100
+          "shares": 5100,
+          "pnlPct": null
         },
         {
           "date": "2026-07-17",
@@ -142,7 +144,8 @@
           "pnl": 144.1126,
           "reason": "SESSION_END",
           "version": "早期版本",
-          "shares": 11300
+          "shares": 11300,
+          "pnlPct": null
         },
         {
           "date": "2026-07-20",
@@ -150,7 +153,8 @@
           "pnl": 417.4604,
           "reason": "TARGET 55% (regime=STRONG_UP, actual=60%)",
           "version": "V4",
-          "shares": 46100
+          "shares": 46100,
+          "pnlPct": null
         },
         {
           "date": "2026-07-20",
@@ -158,7 +162,8 @@
           "pnl": 284.1363,
           "reason": "TARGET 53% (regime=STRONG_UP, actual=53%)",
           "version": "V4",
-          "shares": 23400
+          "shares": 23400,
+          "pnlPct": null
         },
         {
           "date": "2026-07-20",
@@ -166,7 +171,8 @@
           "pnl": 365.7652,
           "reason": "SESSION_END",
           "version": "V4",
-          "shares": 34100
+          "shares": 34100,
+          "pnlPct": null
         },
         {
           "date": "2026-07-20",
@@ -174,7 +180,8 @@
           "pnl": 358.2363,
           "reason": "SESSION_END",
           "version": "V4",
-          "shares": 30900
+          "shares": 30900,
+          "pnlPct": null
         },
         {
           "date": "2026-07-24",
@@ -182,7 +189,8 @@
           "pnl": 438.5596,
           "reason": "TARGET 44% (regime=WEAK_DOWN, actual=50%)",
           "version": "V4",
-          "shares": 69000
+          "shares": 69000,
+          "pnlPct": null
         },
         {
           "date": "2026-07-24",
@@ -190,7 +198,8 @@
           "pnl": 82.3514,
           "reason": "TARGET 46% (regime=WEAK_DOWN, actual=100%)",
           "version": "V4",
-          "shares": 31400
+          "shares": 31400,
+          "pnlPct": null
         },
         {
           "date": "2026-07-24",
@@ -198,7 +207,8 @@
           "pnl": -193.5993,
           "reason": "TARGET 41% (regime=WEAK_DOWN, actual=50%)",
           "version": "V4",
-          "shares": 11600
+          "shares": 11600,
+          "pnlPct": null
         },
         {
           "date": "2026-07-24",
@@ -206,7 +216,8 @@
           "pnl": 210.6907,
           "reason": "PARTIAL 50% @ +0.70% after 1435min",
           "version": "V4",
-          "shares": 85000
+          "shares": 85000,
+          "pnlPct": null
         },
         {
           "date": "2026-07-27",
@@ -214,7 +225,8 @@
           "pnl": 21.0048,
           "reason": "TARGET 53% (regime=STRONG_UP, actual=93%)",
           "version": "V4",
-          "shares": 21400
+          "shares": 21400,
+          "pnlPct": null
         },
         {
           "date": "2026-07-27",
@@ -222,7 +234,8 @@
           "pnl": 455.6672,
           "reason": "PARTIAL 50% @ +1.39% after 4348min",
           "version": "V4",
-          "shares": 12500
+          "shares": 12500,
+          "pnlPct": null
         },
         {
           "date": "2026-07-27",
@@ -230,7 +243,8 @@
           "pnl": 1049.3716,
           "reason": "PARTIAL 50% @ +3.02% after 4347min",
           "version": "V4",
-          "shares": 35300
+          "shares": 35300,
+          "pnlPct": null
         },
         {
           "date": "2026-07-27",
@@ -238,7 +252,8 @@
           "pnl": 69.0098,
           "reason": "TARGET 55% (regime=STRONG_UP, actual=90%)",
           "version": "V4",
-          "shares": 112400
+          "shares": 112400,
+          "pnlPct": null
         },
         {
           "date": "2026-07-27",
@@ -246,7 +261,8 @@
           "pnl": 216.5436,
           "reason": "TARGET 50% (regime=WEAK_UP, actual=53%)",
           "version": "V4",
-          "shares": 16300
+          "shares": 16300,
+          "pnlPct": null
         },
         {
           "date": "2026-07-28",
@@ -254,7 +270,8 @@
           "pnl": -162.2511,
           "reason": "TARGET 41% (regime=WEAK_DOWN, actual=100%)",
           "version": "V4",
-          "shares": 11900
+          "shares": 11900,
+          "pnlPct": null
         },
         {
           "date": "2026-07-30",
@@ -262,7 +279,8 @@
           "pnl": 86.9849,
           "reason": "TARGET 45% (regime=FLAT, actual=91%)",
           "version": "V4",
-          "shares": 11800
+          "shares": 11800,
+          "pnlPct": null
         },
         {
           "date": "2026-07-30",
@@ -270,7 +288,8 @@
           "pnl": -717.7059,
           "reason": "TARGET 50% (regime=FLAT, actual=95%)",
           "version": "V4",
-          "shares": 30700
+          "shares": 30700,
+          "pnlPct": null
         },
         {
           "date": "2026-07-30",
@@ -278,7 +297,8 @@
           "pnl": 67.6576,
           "reason": "TARGET 48% (regime=FLAT, actual=93%)",
           "version": "V4",
-          "shares": 22100
+          "shares": 22100,
+          "pnlPct": null
         },
         {
           "date": "2026-07-30",
@@ -286,7 +306,8 @@
           "pnl": 92.5191,
           "reason": "TARGET 50% (regime=FLAT, actual=56%)",
           "version": "V4",
-          "shares": 16900
+          "shares": 16900,
+          "pnlPct": null
         },
         {
           "date": "2026-07-31",
@@ -294,7 +315,8 @@
           "pnl": 298.0783,
           "reason": "PARTIAL 50% @ +0.95% after 1434min",
           "version": "V4",
-          "shares": 38000
+          "shares": 38000,
+          "pnlPct": null
         },
         {
           "date": "2026-07-31",
@@ -302,7 +324,8 @@
           "pnl": 1064.0715,
           "reason": "PARTIAL 50% @ +3.12% after 1433min",
           "version": "V4",
-          "shares": 32600
+          "shares": 32600,
+          "pnlPct": null
         },
         {
           "date": "2026-07-31",
@@ -310,7 +333,8 @@
           "pnl": 1243.2587,
           "reason": "TAKE PROFIT @ 1.1160",
           "version": "V4",
-          "shares": 33000
+          "shares": 33000,
+          "pnlPct": null
         },
         {
           "date": "2026-07-31",
@@ -318,7 +342,8 @@
           "pnl": 1153.3314,
           "reason": "PARTIAL 50% @ +3.36% after 1429min",
           "version": "V4",
-          "shares": 22600
+          "shares": 22600,
+          "pnlPct": null
         },
         {
           "date": "2026-07-31",
@@ -326,7 +351,8 @@
           "pnl": 194.1984,
           "reason": "TARGET 50% (regime=STRONG_UP, actual=50%)",
           "version": "V4",
-          "shares": 127400
+          "shares": 127400,
+          "pnlPct": null
         },
         {
           "date": "2026-08-03",
@@ -334,7 +360,8 @@
           "pnl": -2633.4896,
           "reason": "STOP LOSS @ 1.6870",
           "version": "V4",
-          "shares": 28300
+          "shares": 28300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-04",
@@ -342,7 +369,8 @@
           "pnl": -248.4883,
           "reason": "TARGET 50% (regime=WEAK_UP, actual=75%)",
           "version": "V4",
-          "shares": 18700
+          "shares": 18700,
+          "pnlPct": null
         },
         {
           "date": "2026-08-04",
@@ -350,7 +378,8 @@
           "pnl": 783.9768,
           "reason": "TARGET 50% (regime=WEAK_UP, actual=67%)",
           "version": "V4",
-          "shares": 110500
+          "shares": 110500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-04",
@@ -358,7 +387,8 @@
           "pnl": 428.5579,
           "reason": "TARGET 45% (regime=WEAK_UP, actual=45%)",
           "version": "V4",
-          "shares": 122200
+          "shares": 122200,
+          "pnlPct": null
         },
         {
           "date": "2026-08-04",
@@ -366,7 +396,8 @@
           "pnl": 321.3924,
           "reason": "TARGET 50% (regime=STRONG_UP, actual=54%)",
           "version": "V4",
-          "shares": 42400
+          "shares": 42400,
+          "pnlPct": null
         },
         {
           "date": "2026-08-05",
@@ -374,7 +405,8 @@
           "pnl": 155.8193,
           "reason": "TARGET 45% (regime=WEAK_UP, actual=50%)",
           "version": "V14",
-          "shares": 91000
+          "shares": 91000,
+          "pnlPct": null
         },
         {
           "date": "2026-08-05",
@@ -382,7 +414,8 @@
           "pnl": 184.7368,
           "reason": "TARGET 45% (regime=WEAK_UP, actual=47%)",
           "version": "V14",
-          "shares": 35700
+          "shares": 35700,
+          "pnlPct": null
         },
         {
           "date": "2026-08-05",
@@ -390,7 +423,8 @@
           "pnl": -0.7426,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 34300
+          "shares": 34300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-06",
@@ -398,7 +432,8 @@
           "pnl": -101.565,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 33300
+          "shares": 33300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-06",
@@ -406,7 +441,8 @@
           "pnl": -146.317,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 4800
+          "shares": 4800,
+          "pnlPct": null
         },
         {
           "date": "2026-08-06",
@@ -414,7 +450,8 @@
           "pnl": -28.4768,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 100200
+          "shares": 100200,
+          "pnlPct": null
         },
         {
           "date": "2026-08-07",
@@ -422,7 +459,8 @@
           "pnl": 213.8786,
           "reason": "TARGET 45% (regime=FLAT, actual=50%)",
           "version": "V14",
-          "shares": 124500
+          "shares": 124500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-07",
@@ -430,7 +468,8 @@
           "pnl": 51.501,
           "reason": "TARGET 45% (regime=WEAK_UP, actual=50%)",
           "version": "V14",
-          "shares": 43300
+          "shares": 43300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-10",
@@ -438,7 +477,8 @@
           "pnl": 583.6861,
           "reason": "TARGET 45% (regime=FLAT, actual=100%)",
           "version": "V14",
-          "shares": 123800
+          "shares": 123800,
+          "pnlPct": null
         },
         {
           "date": "2026-08-10",
@@ -446,7 +486,8 @@
           "pnl": 322.7853,
           "reason": "TARGET 45% (regime=WEAK_UP, actual=48%)",
           "version": "V14",
-          "shares": 26500
+          "shares": 26500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-10",
@@ -454,7 +495,8 @@
           "pnl": 299.0628,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 39300
+          "shares": 39300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-10",
@@ -462,7 +504,8 @@
           "pnl": 270.9966,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 87500
+          "shares": 87500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-11",
@@ -470,7 +513,8 @@
           "pnl": -35.1351,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 42900
+          "shares": 42900,
+          "pnlPct": null
         },
         {
           "date": "2026-08-11",
@@ -478,7 +522,8 @@
           "pnl": -35.1351,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 42900
+          "shares": 42900,
+          "pnlPct": null
         },
         {
           "date": "2026-08-12",
@@ -486,7 +531,8 @@
           "pnl": -74.5231,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 39400
+          "shares": 39400,
+          "pnlPct": null
         },
         {
           "date": "2026-08-14",
@@ -494,7 +540,8 @@
           "pnl": -450.1858,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 51900
+          "shares": 51900,
+          "pnlPct": null
         },
         {
           "date": "2026-08-14",
@@ -502,7 +549,8 @@
           "pnl": 46.6879,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 77100
+          "shares": 77100,
+          "pnlPct": null
         },
         {
           "date": "2026-08-21",
@@ -510,7 +558,8 @@
           "pnl": -79.9047,
           "reason": "FLAT TIME STOP @ -0.11% after 60min",
           "version": "V14",
-          "shares": 47700
+          "shares": 47700,
+          "pnlPct": null
         },
         {
           "date": "2026-08-21",
@@ -518,7 +567,8 @@
           "pnl": 280.8467,
           "reason": "TARGET 45% (regime=FLAT, actual=50%)",
           "version": "V14",
-          "shares": 45100
+          "shares": 45100,
+          "pnlPct": null
         },
         {
           "date": "2026-08-24",
@@ -526,7 +576,8 @@
           "pnl": -705.4173,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 29500
+          "shares": 29500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-24",
@@ -534,7 +585,8 @@
           "pnl": -417.3162,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 77200
+          "shares": 77200,
+          "pnlPct": null
         },
         {
           "date": "2026-08-24",
@@ -542,7 +594,8 @@
           "pnl": -380.7831,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 29500
+          "shares": 29500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-24",
@@ -550,7 +603,8 @@
           "pnl": -262.7541,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 77200
+          "shares": 77200,
+          "pnlPct": null
         },
         {
           "date": "2026-08-25",
@@ -558,7 +612,8 @@
           "pnl": 20.2325,
           "reason": "TARGET 45% (regime=FLAT, actual=45%)",
           "version": "V14",
-          "shares": 50000
+          "shares": 50000,
+          "pnlPct": null
         },
         {
           "date": "2026-08-25",
@@ -566,7 +621,8 @@
           "pnl": -64.972,
           "reason": "FLAT TIME STOP @ -0.07% after 60min",
           "version": "V14",
-          "shares": 5100
+          "shares": 5100,
+          "pnlPct": null
         },
         {
           "date": "2026-08-25",
@@ -574,7 +630,8 @@
           "pnl": 157.7104,
           "reason": "TARGET 45% (regime=FLAT, actual=50%)",
           "version": "V14",
-          "shares": 48200
+          "shares": 48200,
+          "pnlPct": null
         },
         {
           "date": "2026-08-26",
@@ -582,7 +639,8 @@
           "pnl": -45.2614,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 23300
+          "shares": 23300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-26",
@@ -590,7 +648,8 @@
           "pnl": 36.4176,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 62600
+          "shares": 62600,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -598,7 +657,8 @@
           "pnl": 92.5665,
           "reason": "TARGET 45% (regime=FLAT, actual=67%)",
           "version": "V14",
-          "shares": 30300
+          "shares": 30300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -606,7 +666,8 @@
           "pnl": -208.5978,
           "reason": "FLAT TIME STOP @ -0.36% after 60min",
           "version": "V14",
-          "shares": 86800
+          "shares": 86800,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -614,7 +675,8 @@
           "pnl": -178.4159,
           "reason": "FLAT TIME STOP @ -0.30% after 60min",
           "version": "V14",
-          "shares": 47800
+          "shares": 47800,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -622,7 +684,8 @@
           "pnl": -35.0122,
           "reason": "FLAT TIME STOP @ -0.01% after 145min",
           "version": "V14",
-          "shares": 58500
+          "shares": 58500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -630,7 +693,8 @@
           "pnl": -34.9968,
           "reason": "FLAT TIME STOP @ -0.01% after 135min",
           "version": "V14",
-          "shares": 87100
+          "shares": 87100,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -638,7 +702,8 @@
           "pnl": 108.3841,
           "reason": "FLAT TIME STOP @ +0.28% after 60min",
           "version": "V14",
-          "shares": 47800
+          "shares": 47800,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -646,7 +711,8 @@
           "pnl": 121.1453,
           "reason": "FLAT TIME STOP @ +0.24% after 60min",
           "version": "V14",
-          "shares": 62500
+          "shares": 62500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -654,7 +720,8 @@
           "pnl": -65.9438,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 5200
+          "shares": 5200,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -662,7 +729,8 @@
           "pnl": 52.2534,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 87300
+          "shares": 87300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-31",
@@ -670,7 +738,8 @@
           "pnl": -320.4865,
           "reason": "FLAT TIME STOP @ -0.78% after 60min",
           "version": "V14",
-          "shares": 29400
+          "shares": 29400,
+          "pnlPct": null
         },
         {
           "date": "2026-08-31",
@@ -678,7 +747,8 @@
           "pnl": -202.7424,
           "reason": "FLAT TIME STOP @ -0.48% after 60min",
           "version": "V14",
-          "shares": 29400
+          "shares": 29400,
+          "pnlPct": null
         },
         {
           "date": "2026-08-31",
@@ -686,7 +756,8 @@
           "pnl": 281.0178,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 29300
+          "shares": 29300,
+          "pnlPct": null
         },
         {
           "date": "2026-09-04",
@@ -694,7 +765,8 @@
           "pnl": 93.7593,
           "reason": "FLAT TIME STOP @ +0.16% after 60min",
           "version": "V14",
-          "shares": 85900
+          "shares": 85900,
+          "pnlPct": null
         },
         {
           "date": "2026-09-04",
@@ -702,7 +774,8 @@
           "pnl": -148.6267,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 37900
+          "shares": 37900,
+          "pnlPct": null
         },
         {
           "date": "2026-09-08",
@@ -710,7 +783,8 @@
           "pnl": 159.7123,
           "reason": "TARGET 45% (regime=FLAT, actual=56%)",
           "version": "V14",
-          "shares": 47600
+          "shares": 47600,
+          "pnlPct": null
         },
         {
           "date": "2026-09-08",
@@ -718,7 +792,8 @@
           "pnl": 3.6279,
           "reason": "FLAT TIME STOP @ +0.07% after 60min",
           "version": "V14",
-          "shares": 37000
+          "shares": 37000,
+          "pnlPct": null
         },
         {
           "date": "2026-09-08",
@@ -726,7 +801,8 @@
           "pnl": 53.7728,
           "reason": "FLAT TIME STOP @ +0.17% after 60min",
           "version": "V14",
-          "shares": 88800
+          "shares": 88800,
+          "pnlPct": null
         },
         {
           "date": "2026-09-08",
@@ -734,7 +810,8 @@
           "pnl": -34.9961,
           "reason": "FLAT TIME STOP @ -0.01% after 60min",
           "version": "V14",
-          "shares": 88800
+          "shares": 88800,
+          "pnlPct": null
         },
         {
           "date": "2026-09-08",
@@ -742,7 +819,8 @@
           "pnl": -34.9938,
           "reason": "FLAT TIME STOP @ -0.01% after 60min",
           "version": "V14",
-          "shares": 90400
+          "shares": 90400,
+          "pnlPct": null
         },
         {
           "date": "2026-09-09",
@@ -750,7 +828,8 @@
           "pnl": 153.8986,
           "reason": "TARGET 45% (regime=FLAT, actual=64%)",
           "version": "V14",
-          "shares": 21700
+          "shares": 21700,
+          "pnlPct": null
         },
         {
           "date": "2026-09-09",
@@ -758,7 +837,8 @@
           "pnl": -33.2879,
           "reason": "FLAT TIME STOP @ -0.01% after 60min",
           "version": "V14",
-          "shares": 52200
+          "shares": 52200,
+          "pnlPct": null
         },
         {
           "date": "2026-09-09",
@@ -766,7 +846,8 @@
           "pnl": 47.1664,
           "reason": "FLAT TIME STOP @ +0.17% after 60min",
           "version": "V14",
-          "shares": 77000
+          "shares": 77000,
+          "pnlPct": null
         },
         {
           "date": "2026-09-09",
@@ -774,7 +855,8 @@
           "pnl": -91.8017,
           "reason": "FLAT TIME STOP @ -0.14% after 60min",
           "version": "V14",
-          "shares": 19900
+          "shares": 19900,
+          "pnlPct": null
         },
         {
           "date": "2026-09-09",
@@ -782,7 +864,8 @@
           "pnl": -106.7259,
           "reason": "FLAT TIME STOP @ -0.19% after 60min",
           "version": "V14",
-          "shares": 77000
+          "shares": 77000,
+          "pnlPct": null
         },
         {
           "date": "2026-09-09",
@@ -790,7 +873,8 @@
           "pnl": -30.9991,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 58500
+          "shares": 58500,
+          "pnlPct": null
         },
         {
           "date": "2026-09-09",
@@ -798,7 +882,8 @@
           "pnl": -19.5191,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 21700
+          "shares": 21700,
+          "pnlPct": null
         },
         {
           "date": "2026-09-14",
@@ -806,7 +891,8 @@
           "pnl": 85.5657,
           "reason": "FLAT TIME STOP @ +0.23% after 60min",
           "version": "V14",
-          "shares": 60300
+          "shares": 60300,
+          "pnlPct": null
         },
         {
           "date": "2026-09-18",
@@ -814,7 +900,8 @@
           "pnl": 444.9104,
           "reason": "TARGET 45% (regime=WEAK_UP, actual=96%)",
           "version": "V14",
-          "shares": 21100
+          "shares": 21100,
+          "pnlPct": null
         },
         {
           "date": "2026-09-18",
@@ -822,7 +909,8 @@
           "pnl": -61.3567,
           "reason": "FLAT TIME STOP @ -0.16% after 200min",
           "version": "V14",
-          "shares": 21100
+          "shares": 21100,
+          "pnlPct": null
         },
         {
           "date": "2026-09-18",
@@ -830,12 +918,14 @@
           "pnl": -124.6345,
           "reason": "SESSION_END",
           "version": "V14",
-          "shares": 21100
+          "shares": 21100,
+          "pnlPct": null
         }
       ],
       "basis": "已平仓盈亏重建 / CNY",
       "returnPct": 2.827645050000016,
-      "drawdown": 1.2707265498817633
+      "drawdown": 1.2707265498817633,
+      "tradeNote": "按持仓合并分批卖出并补扣买入佣金；按退出日期倒序展示。会话记录与 Scalper 历史重叠，不重复汇总。"
     },
     {
       "id": "competition",
@@ -862,7 +952,8 @@
       "trades": [],
       "basis": "账户权益 / CNY",
       "returnPct": -8.688275435999993,
-      "drawdown": 8.688275435999996
+      "drawdown": 8.688275435999996,
+      "tradeNote": "当前组合文件提供持仓和权益，未提供可核对的核心组合逐笔成交；T+0 部分请切换至 T+0 子账户查看。"
     },
     {
       "id": "t0",
@@ -873,10 +964,52 @@
       "date": "2026-09-18",
       "note": "独立虚拟账户。仅展示最新权益快照；缺少完整历史，不计算历史回撤。",
       "points": [],
-      "trades": [],
+      "trades": [
+        {
+          "date": "2026-08-12",
+          "time": "2026-08-12T10:45:09.574141+08:00",
+          "symbol": "513030.SS",
+          "version": "T+0",
+          "shares": 99000,
+          "pnl": null,
+          "pnlPct": -0.008342022940563076,
+          "reason": "MAX_HOLD"
+        },
+        {
+          "date": "2026-08-13",
+          "time": "2026-08-13T09:34:43.076143+08:00",
+          "symbol": "513050.SS",
+          "version": "T+0",
+          "shares": 166200,
+          "pnl": null,
+          "pnlPct": -0.00881834215167554,
+          "reason": "MAX_HOLD"
+        },
+        {
+          "date": "2026-08-24",
+          "time": "2026-08-24T14:03:53.447323+08:00",
+          "symbol": "159981.SZ",
+          "version": "T+0",
+          "shares": 120100,
+          "pnl": null,
+          "pnlPct": 0.014781491002570535,
+          "reason": "TAKE_PROFIT"
+        },
+        {
+          "date": "2026-09-18",
+          "time": "2026-09-18T10:24:09.798550+08:00",
+          "symbol": "513030.SS",
+          "version": "T+0",
+          "shares": 99300,
+          "pnl": null,
+          "pnlPct": -0.03880440482433145,
+          "reason": "STOP"
+        }
+      ],
       "basis": "账户权益 / CNY",
       "returnPct": -3.9159500000000236,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "源日志只记录盈亏比例，未记录单笔金额及完整成本，金额显示 —；不从百分比反推净盈亏。"
     },
     {
       "id": "overlay",
@@ -887,10 +1020,62 @@
       "date": "2026-09-18",
       "note": "属于组合竞赛盘的子账户，已被组合覆盖，不能与组合叠加。",
       "points": [],
-      "trades": [],
+      "trades": [
+        {
+          "date": "2026-08-12",
+          "time": "2026-08-12T10:45:09.536993+08:00",
+          "symbol": "513030.SS",
+          "version": "T+0",
+          "shares": 19800,
+          "pnl": null,
+          "pnlPct": -0.008342022940563076,
+          "reason": "MAX_HOLD"
+        },
+        {
+          "date": "2026-08-13",
+          "time": "2026-08-13T09:34:43.033686+08:00",
+          "symbol": "513050.SS",
+          "version": "T+0",
+          "shares": 33200,
+          "pnl": null,
+          "pnlPct": -0.009691629955947079,
+          "reason": "MAX_HOLD"
+        },
+        {
+          "date": "2026-08-24",
+          "time": "2026-08-24T11:25:12.288744+08:00",
+          "symbol": "159981.SZ",
+          "version": "T+0",
+          "shares": 24000,
+          "pnl": null,
+          "pnlPct": 0.01799485861182526,
+          "reason": "TAKE_PROFIT"
+        },
+        {
+          "date": "2026-08-25",
+          "time": "2026-08-25T10:00:34.531879+08:00",
+          "symbol": "513130.SS",
+          "version": "T+0",
+          "shares": 66600,
+          "pnl": null,
+          "pnlPct": -0.0052631578947368585,
+          "reason": "MAX_HOLD"
+        },
+        {
+          "date": "2026-09-18",
+          "time": "2026-09-18T10:24:09.742795+08:00",
+          "symbol": "513030.SS",
+          "version": "T+0",
+          "shares": 19800,
+          "pnl": null,
+          "pnlPct": -0.03880440482433145,
+          "reason": "STOP"
+        }
+      ],
       "basis": "账户权益 / CNY",
       "returnPct": -4.187499999999977,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "源日志只记录盈亏比例，未记录单笔金额及完整成本，金额显示 —；不从百分比反推净盈亏。"
     },
     {
       "id": "v17",
@@ -908,7 +1093,8 @@
           "pnl": -113.67,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 50600
+          "shares": 50600,
+          "pnlPct": null
         },
         {
           "date": "2026-08-13",
@@ -916,7 +1102,8 @@
           "pnl": -94.98,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 82500
+          "shares": 82500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-14",
@@ -924,7 +1111,8 @@
           "pnl": -679.2,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 51300
+          "shares": 51300,
+          "pnlPct": null
         },
         {
           "date": "2026-08-14",
@@ -932,7 +1120,8 @@
           "pnl": -12.43,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 51900
+          "shares": 51900,
+          "pnlPct": null
         },
         {
           "date": "2026-08-14",
@@ -940,7 +1129,8 @@
           "pnl": -12.43,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 51900
+          "shares": 51900,
+          "pnlPct": null
         },
         {
           "date": "2026-08-24",
@@ -948,7 +1138,8 @@
           "pnl": 40.46,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 52900
+          "shares": 52900,
+          "pnlPct": null
         },
         {
           "date": "2026-08-26",
@@ -956,7 +1147,8 @@
           "pnl": 39.97,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 52400
+          "shares": 52400,
+          "pnlPct": null
         },
         {
           "date": "2026-08-26",
@@ -964,7 +1156,8 @@
           "pnl": 72.74,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 85200
+          "shares": 85200,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -972,7 +1165,8 @@
           "pnl": -221.98,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 52400
+          "shares": 52400,
+          "pnlPct": null
         },
         {
           "date": "2026-08-27",
@@ -980,7 +1174,8 @@
           "pnl": -97.62,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 85200
+          "shares": 85200,
+          "pnlPct": null
         },
         {
           "date": "2026-08-28",
@@ -988,7 +1183,8 @@
           "pnl": 358.51,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 53000
+          "shares": 53000,
+          "pnlPct": null
         },
         {
           "date": "2026-08-28",
@@ -996,7 +1192,8 @@
           "pnl": -97.92,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 85500
+          "shares": 85500,
+          "pnlPct": null
         },
         {
           "date": "2026-08-31",
@@ -1004,7 +1201,8 @@
           "pnl": -12.43,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 85400
+          "shares": 85400,
+          "pnlPct": null
         },
         {
           "date": "2026-09-03",
@@ -1012,7 +1210,8 @@
           "pnl": -816.23,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 53600
+          "shares": 53600,
+          "pnlPct": null
         },
         {
           "date": "2026-09-03",
@@ -1020,7 +1219,8 @@
           "pnl": -706.66,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 86800
+          "shares": 86800,
+          "pnlPct": null
         },
         {
           "date": "2026-09-04",
@@ -1028,7 +1228,8 @@
           "pnl": 146.64,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 53000
+          "shares": 53000,
+          "pnlPct": null
         },
         {
           "date": "2026-09-04",
@@ -1036,7 +1237,8 @@
           "pnl": -354.25,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 85500
+          "shares": 85500,
+          "pnlPct": null
         },
         {
           "date": "2026-09-08",
@@ -1044,7 +1246,8 @@
           "pnl": 36.1,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 46900
+          "shares": 46900,
+          "pnlPct": null
         },
         {
           "date": "2026-09-08",
@@ -1052,7 +1255,8 @@
           "pnl": -273.25,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 87000
+          "shares": 87000,
+          "pnlPct": null
         },
         {
           "date": "2026-09-08",
@@ -1060,7 +1264,8 @@
           "pnl": 36.1,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 46900
+          "shares": 46900,
+          "pnlPct": null
         },
         {
           "date": "2026-09-09",
@@ -1068,7 +1273,8 @@
           "pnl": -269.16,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 51500
+          "shares": 51500,
+          "pnlPct": null
         },
         {
           "date": "2026-09-11",
@@ -1076,7 +1282,8 @@
           "pnl": 454.66,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 51800
+          "shares": 51800,
+          "pnlPct": null
         },
         {
           "date": "2026-09-14",
@@ -1084,7 +1291,8 @@
           "pnl": -61.85,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 50600
+          "shares": 50600,
+          "pnlPct": null
         },
         {
           "date": "2026-09-18",
@@ -1092,12 +1300,14 @@
           "pnl": 147.78,
           "reason": "SELL_EOD",
           "version": "V17",
-          "shares": 53200
+          "shares": 53200,
+          "pnlPct": null
         }
       ],
       "basis": "账户权益 / CNY",
       "returnPct": -1.2611087250000153,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "日志卖出盈亏已扣卖出佣金，未扣买入佣金。"
     },
     {
       "id": "legacy",
@@ -1108,10 +1318,21 @@
       "date": "2026-07-16",
       "note": "单次会话表现，部分会话重置本金。与 Scalper 交易历史有重叠，不作为新增独立账户求和。",
       "points": [],
-      "trades": [],
+      "trades": [
+        {
+          "date": "2026-07-16",
+          "symbol": "159915.SZ",
+          "pnl": -55.0014,
+          "reason": "SESSION_END",
+          "version": "早期版本",
+          "shares": 5200,
+          "pnlPct": null
+        }
+      ],
       "basis": "账户权益 / CNY",
       "returnPct": -0.05500137434000241,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "按持仓合并分批卖出并补扣买入佣金；按退出日期倒序展示。会话记录与 Scalper 历史重叠，不重复汇总。"
     },
     {
       "id": "v3",
@@ -1122,10 +1343,39 @@
       "date": "2026-07-17",
       "note": "单次会话表现，部分会话重置本金。与 Scalper 交易历史有重叠，不作为新增独立账户求和。",
       "points": [],
-      "trades": [],
+      "trades": [
+        {
+          "date": "2026-07-17",
+          "symbol": "510300.SS",
+          "pnl": 81.1108,
+          "reason": "SESSION_END",
+          "version": "V3",
+          "shares": 8600,
+          "pnlPct": null
+        },
+        {
+          "date": "2026-07-17",
+          "symbol": "510500.SS",
+          "pnl": -77.7389,
+          "reason": "SESSION_END",
+          "version": "V3",
+          "shares": 5100,
+          "pnlPct": null
+        },
+        {
+          "date": "2026-07-17",
+          "symbol": "159915.SZ",
+          "pnl": 144.1126,
+          "reason": "SESSION_END",
+          "version": "V3",
+          "shares": 11300,
+          "pnlPct": null
+        }
+      ],
       "basis": "账户权益 / CNY",
       "returnPct": 0.0737422428637391,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "按持仓合并分批卖出并补扣买入佣金；按退出日期倒序展示。会话记录与 Scalper 历史重叠，不重复汇总。"
     },
     {
       "id": "v14",
@@ -1136,10 +1386,39 @@
       "date": "2026-09-18",
       "note": "单次会话表现，部分会话重置本金。与 Scalper 交易历史有重叠，不作为新增独立账户求和。",
       "points": [],
-      "trades": [],
+      "trades": [
+        {
+          "date": "2026-09-18",
+          "symbol": "513120.SS",
+          "pnl": 444.9104,
+          "reason": "TARGET 45% (regime=WEAK_UP, actual=96%)",
+          "version": "V14",
+          "shares": 21100,
+          "pnlPct": null
+        },
+        {
+          "date": "2026-09-18",
+          "symbol": "513120.SS",
+          "pnl": -61.3567,
+          "reason": "FLAT TIME STOP @ -0.16% after 200min",
+          "version": "V14",
+          "shares": 21100,
+          "pnlPct": null
+        },
+        {
+          "date": "2026-09-18",
+          "symbol": "513120.SS",
+          "pnl": -124.6345,
+          "reason": "SESSION_END",
+          "version": "V14",
+          "shares": 21100,
+          "pnlPct": null
+        }
+      ],
       "basis": "账户权益 / CNY",
       "returnPct": 0.1787025280187704,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "按持仓合并分批卖出并补扣买入佣金；按退出日期倒序展示。会话记录与 Scalper 历史重叠，不重复汇总。"
     },
     {
       "id": "forward",
@@ -1153,7 +1432,8 @@
       "trades": [],
       "basis": "账户权益 / CNY",
       "returnPct": -0.034874104278070917,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "当前来源仅有持仓或权益信息，暂无可用成交明细；不把持仓快照当作已成交记录。"
     },
     {
       "id": "momentum-0",
@@ -1167,7 +1447,8 @@
       "trades": [],
       "basis": "账户权益 / CNY",
       "returnPct": null,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "当前来源仅有持仓或权益信息，暂无可用成交明细；不把持仓快照当作已成交记录。"
     },
     {
       "id": "momentum-1",
@@ -1181,7 +1462,8 @@
       "trades": [],
       "basis": "账户权益 / CNY",
       "returnPct": null,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "当前来源仅有持仓或权益信息，暂无可用成交明细；不把持仓快照当作已成交记录。"
     },
     {
       "id": "momentum-2",
@@ -1195,7 +1477,8 @@
       "trades": [],
       "basis": "账户权益 / CNY",
       "returnPct": null,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "当前来源仅有持仓或权益信息，暂无可用成交明细；不把持仓快照当作已成交记录。"
     },
     {
       "id": "momentum-3",
@@ -1209,7 +1492,8 @@
       "trades": [],
       "basis": "账户权益 / CNY",
       "returnPct": null,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "当前来源仅有持仓或权益信息，暂无可用成交明细；不把持仓快照当作已成交记录。"
     },
     {
       "id": "momentum-4",
@@ -1223,7 +1507,8 @@
       "trades": [],
       "basis": "账户权益 / CNY",
       "returnPct": null,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "当前来源仅有持仓或权益信息，暂无可用成交明细；不把持仓快照当作已成交记录。"
     },
     {
       "id": "momentum-5",
@@ -1237,7 +1522,8 @@
       "trades": [],
       "basis": "账户权益 / CNY",
       "returnPct": null,
-      "drawdown": null
+      "drawdown": null,
+      "tradeNote": "当前来源仅有持仓或权益信息，暂无可用成交明细；不把持仓快照当作已成交记录。"
     }
   ],
   "sources": [
