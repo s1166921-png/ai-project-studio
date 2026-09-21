@@ -1,4 +1,4 @@
-export type Project = {id:string;title:string;en?:string;category:string;status:string;tagline?:string;summary:string;stack:string[];color?:string;number?:string;metric?:string;metricLabel?:string;second?:string;secondLabel?:string;problem:string;solution:string;decisions:string[];evidence:string[][];boundary:string;flow?:string[]};
+export type Project = {id:string;title:string;en?:string;category:string;status:string;tagline?:string;summary:string;stack:string[];color?:string;number?:string;metric?:string;metricLabel?:string;second?:string;secondLabel?:string;problem:string;solution:string;decisions:string[];evidence:string[][];boundary:string;flow?:string[];audience?:string;experience?:string[];accessNote?:string;links?:ProjectLink[]};
 export const projects: Project[] = [
   {
     "id": "yundai",
@@ -510,3 +510,13 @@ export const projects: Project[] = [
   }
 ];
 export const categories = ["全部","AI 应用","业务工程","机器学习","交互产品"];
+export type ProjectLink = {label:string;url:string;kind:string;note:string};
+const toolDetails: Record<string,Partial<Project>> = {
+ yundai:{audience:'跨境企业经营者 · 融资顾问',experience:['查看渐进式经营资料采集方式','理解产品候选与规则解释','查看 AI 分析如何交给顾问复核'],accessNote:'可查看公开实现与运行说明；线上演示地址待补充。'},
+ geo:{title:'GEO 生成式内容平台',audience:'内容运营 · 品牌与增长团队',summary:'将选题、素材约束、AI 生成、质量门禁与发布观测串联，支持面向生成式搜索的内容运营。',experience:['了解素材到生成的完整流程','查看质量检查与有限修复机制','访问内容站，查看最终发布形态'],evidence:[['GEO 系统源码','https://github.com/s1166921-png/meiou-geo-system']],boundary:'GEO 平台与微信文章工具是两个独立项目。内容站展示发布结果，不等同于运营后台；不将内容发布量等同于 AI 引用效果。',accessNote:'可访问公开内容站；运营后台入口待补充。',links:[{label:'查看已发布内容',url:'https://news.meiouyuncang.com/',kind:'内容站',note:'展示内容交付形态，非平台管理后台'}]},
+ hs:{title:'HS 编码与全球关税查询',audience:'跨境运营 · 报关与物流人员',experience:['按编码或分类定位商品信息','对比标准化后的关税字段','了解查询结果如何进入到岸成本计算'],accessNote:'在线查询入口已核对；部分管理功能需要登录。',links:[{label:'打开 HS 编码查询',url:'http://47.106.189.214/',kind:'在线工具',note:'HTTP 站点 · 管理功能需要登录'}]},
+ news:{title:'微信文章自动化工作台',audience:'公众号编辑 · 内容运营',experience:['从热点素材发起文章改写','检查新增数字、日期与复制片段','将结果导出为微信兼容 HTML'],flow:['热点与素材','AI 改写','规则核对','微信 HTML 导出'],accessNote:'可查看源码与本地运行方式；网页入口及公开文章样例待补充。'}
+};
+for(const project of projects)Object.assign(project,toolDetails[project.id]||{});
+projects.splice(4,0,{id:'compliance',title:'财税合规官网与 AI 咨询',en:'A business website, connected to intelligence.',category:'AI 应用',status:'在线视觉提案',tagline:'让业务入口与 AI 服务衔接起来。',summary:'以三套视觉方案承载财税合规服务，整合咨询面板与带业务标识的 AI 客服入口。',stack:['Next.js','React','Tailwind','Cloudflare'],problem:'业务方需要比较不同品牌表达，同时让访问者从了解服务自然进入具体业务咨询。',solution:'在统一业务内容上构建顾问型、科技型和东方品牌型三套页面，通过咨询面板和业务标识连接客服知识范围。',decisions:['以共享业务内容支持三种视觉提案，方便比较与迭代。','客服挂件传入业务标识，减少访问者重复说明咨询背景。','把官网展示、咨询入口和客服回答组织为同一条服务路径。'],flow:['了解服务','选择咨询场景','业务知识路由','咨询与人工跟进'],audience:'跨境企业客户 · 财税业务团队',experience:['比较三种视觉方向的首页','查看服务信息与咨询入口','体验带财税业务上下文的客服入口'],evidence:[],links:[{label:'打开财税合规官网',url:'https://meiou-compliance-templates.fey-pig-8690.chatgpt.site',kind:'网页演示',note:'访问受权限限制，可能需要站点所有者授权'}],accessNote:'已有部署地址；站点设置了访问权限。',boundary:'展示模板站与客服接入设计，三套视觉方案不代表三个独立生产系统。'});
+export const toolIds = ['compliance','yundai','hs','geo','news'];
