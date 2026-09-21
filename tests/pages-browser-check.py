@@ -18,6 +18,12 @@ with sync_playwright() as p:
  base=f'http://127.0.0.1:{server.server_port}/ai-project-studio/'
  page.goto(base+'profile/',wait_until='networkidle');page.get_by_role('heading',name='认真构建。 尽兴生活。').wait_for();page.get_by_role('button',name='放大查看：走到 5018 米').click();page.get_by_role('dialog').wait_for();page.keyboard.press('Escape');page.get_by_role('dialog').wait_for(state='hidden')
  page.set_viewport_size({'width':390,'height':844});page.reload(wait_until='networkidle');assert page.evaluate('document.documentElement.scrollWidth <= innerWidth');assert page.locator('img').evaluate_all('(imgs)=>imgs.filter(i=>i.complete&&i.naturalWidth===0).length')==0
- page.goto(base,wait_until='networkidle');page.get_by_role('link',name='个人名片',exact=True).count();assert 'This page couldn' not in page.locator('body').inner_text();page.goto(base+'projects/hs/',wait_until='networkidle');assert '进入项目' in page.locator('body').inner_text();assert not errors,errors;assert not failed,failed
+ page.goto(base,wait_until='networkidle');
+ assert page.locator('.hero-bottom,.expertise-strip').count()==0
+ assert page.locator('[data-motion-surface]').count()==9
+ page.set_viewport_size({'width':1280,'height':850});card=page.locator('.tool-card').first;card.scroll_into_view_if_needed();page.wait_for_timeout(1000);card.hover();page.mouse.move(card.bounding_box()['x']+45,card.bounding_box()['y']+50);page.wait_for_timeout(400);assert card.evaluate("e=>e.style.getPropertyValue('--glow-opacity')")=='1'
+ page.get_by_role('button',name='暂停页面动画',exact=True).click();assert page.locator('.motion-stage').evaluate("e=>e.classList.contains('motion-paused')");assert card.evaluate("e=>e.style.getPropertyValue('--glow-opacity')")=='0'
+ page.emulate_media(reduced_motion='reduce');assert card.evaluate("e=>getComputedStyle(e).opacity")=='1'
+ page.get_by_role('link',name='个人名片',exact=True).count();assert 'This page couldn' not in page.locator('body').inner_text();page.goto(base+'projects/hs/',wait_until='networkidle');assert '进入项目' in page.locator('body').inner_text();assert not errors,errors;assert not failed,failed
  print('PASS: browser hydration, lightbox, mobile width, homepage and detail routes; no resource failures');b.close()
 server.shutdown()
