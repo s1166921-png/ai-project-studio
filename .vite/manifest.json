@@ -1,34 +1,4 @@
 {
-  "../ai-project-studio/node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js": {
-    "file": "_next/static/chunks/app-route-prefetch-policy-o6-Qrgqo.js",
-    "name": "app-route-prefetch-policy",
-    "src": "../ai-project-studio/node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "virtual:vinext-app-browser-entry"
-    ]
-  },
-  "../ai-project-studio/node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "_next/static/chunks/layout-segment-context-ZG-c0uy3.js",
-    "name": "layout-segment-context",
-    "src": "../ai-project-studio/node_modules/vinext/dist/shims/layout-segment-context.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_rolldown-runtime-C60lm6uB.js",
-      "virtual:vinext-app-browser-entry",
-      "_framework-D_rUT4EX.js"
-    ]
-  },
-  "../ai-project-studio/node_modules/vinext/dist/shims/streamed-icons.js": {
-    "file": "_next/static/chunks/streamed-icons-BbokXyyW.js",
-    "name": "streamed-icons",
-    "src": "../ai-project-studio/node_modules/vinext/dist/shims/streamed-icons.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_rolldown-runtime-C60lm6uB.js",
-      "_framework-D_rUT4EX.js"
-    ]
-  },
   "_Icon-D0zGVybZ.js": {
     "file": "_next/static/chunks/Icon-D0zGVybZ.js",
     "name": "Icon",
@@ -48,19 +18,72 @@
     "file": "_next/static/chunks/rolldown-runtime-C60lm6uB.js",
     "name": "rolldown-runtime"
   },
-  "app/page.tsx": {
-    "file": "_next/static/chunks/page-D_4_YQQq.js",
-    "name": "page",
-    "src": "app/page.tsx",
-    "isDynamicEntry": true,
+  "_tech-field-BYkS2R6t.js": {
+    "file": "_next/static/chunks/tech-field-BYkS2R6t.js",
+    "name": "tech-field",
     "imports": [
       "_rolldown-runtime-C60lm6uB.js",
       "_Icon-D0zGVybZ.js",
       "_framework-D_rUT4EX.js"
     ]
   },
+  "app/page.tsx": {
+    "file": "_next/static/chunks/page-DzZXYXmK.js",
+    "name": "page",
+    "src": "app/page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_tech-field-BYkS2R6t.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "app/profile/profile-client.tsx": {
+    "file": "_next/static/chunks/profile-client-D9dqsMWh.js",
+    "name": "profile-client",
+    "src": "app/profile/profile-client.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_tech-field-BYkS2R6t.js",
+      "_framework-D_rUT4EX.js"
+    ],
+    "css": [
+      "_next/static/css/profile-client.DK9JS_fv.css"
+    ]
+  },
+  "node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js": {
+    "file": "_next/static/chunks/app-route-prefetch-policy-BLLVaqzH.js",
+    "name": "app-route-prefetch-policy",
+    "src": "node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "virtual:vinext-app-browser-entry"
+    ]
+  },
+  "node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "_next/static/chunks/layout-segment-context-J1iWKbAi.js",
+    "name": "layout-segment-context",
+    "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/streamed-icons.js": {
+    "file": "_next/static/chunks/streamed-icons-B7zI55ff.js",
+    "name": "streamed-icons",
+    "src": "node_modules/vinext/dist/shims/streamed-icons.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
   "virtual:vinext-app-browser-entry": {
-    "file": "_next/static/chunks/index-YAh_O0HX.js",
+    "file": "_next/static/chunks/index-BBYAZFfc.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
@@ -69,12 +92,13 @@
       "_framework-D_rUT4EX.js"
     ],
     "dynamicImports": [
-      "../ai-project-studio/node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js",
+      "node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js",
       "virtual:vinext-app-browser-entry",
-      "../ai-project-studio/node_modules/vinext/dist/shims/layout-segment-context.js",
+      "node_modules/vinext/dist/shims/layout-segment-context.js",
       "_Icon-D0zGVybZ.js",
       "app/page.tsx",
-      "../ai-project-studio/node_modules/vinext/dist/shims/streamed-icons.js"
+      "app/profile/profile-client.tsx",
+      "node_modules/vinext/dist/shims/streamed-icons.js"
     ]
   }
 }
