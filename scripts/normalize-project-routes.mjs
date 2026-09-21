@@ -17,3 +17,5 @@ await copyFile('dist/client/profile.rsc','dist/client/profile/index.rsc');
 await mkdir('dist/client/quant',{recursive:true});
 await copyFile('dist/client/quant.html','dist/client/quant/index.html');
 await copyFile('dist/client/quant.rsc','dist/client/quant/index.rsc');
+
+await import('./embed-export-styles.mjs');

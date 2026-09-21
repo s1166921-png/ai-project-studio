@@ -37,5 +37,19 @@ with sync_playwright() as p:
  page.set_viewport_size({'width':1440,'height':1000});select.select_option('scalper');page.screenshot(path='out/quant-desktop.png',full_page=True)
  page.goto(base+'projects/ml/',wait_until='networkidle');page.get_by_role('link',name='交互演示 打开虚拟盘观察台 切换策略 · 曲线复盘 · 成交明细').click();page.get_by_role('heading',name='虚拟盘观察台',exact=True).wait_for()
  assert not errors,errors;assert not failed,failed
+ # Reproduce the user's unstyled page by blocking all separate CSS files.
+ fallback=b.new_page(viewport={'width':1280,'height':850})
+ fallback.route('**/*.css',lambda route:route.abort())
+ for route in ['projects/yundai/','projects/geo/','projects/ml/','quant/']:
+  fallback.goto(base+route,wait_until='networkidle')
+  assert fallback.locator('style[data-export-css]').count()>0
+  assert fallback.locator('h1').evaluate('e=>parseFloat(getComputedStyle(e).fontSize)')>=34
+  if route.startswith('projects/'):
+   assert fallback.locator('.detail-columns').evaluate('e=>getComputedStyle(e).display')=='grid'
+   assert fallback.locator('.access-panel').evaluate('e=>getComputedStyle(e).backgroundColor')=='rgb(37, 42, 34)'
+ fallback.get_by_label('切换策略记录').select_option('competition')
+ assert '-8.69%' in fallback.locator('.q-metrics').inner_text()
+ fallback.close()
+ print('PASS: project and quant styling survives blocked external CSS; interactions still work')
  print('PASS: browser hydration, lightbox, mobile width, homepage and detail routes; no resource failures');b.close()
 server.shutdown()
