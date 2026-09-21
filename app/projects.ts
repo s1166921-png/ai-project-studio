@@ -132,49 +132,46 @@ export const projects: Project[] = [
   },
   {
     "id": "ml",
-    "title": "机器学习实验室",
-    "en": "A hypothesis, put to the test.",
+    "title": "AI 量化交易",
+    "en": "Models meet execution.",
     "category": "机器学习",
-    "status": "研究原型",
-    "tagline": "让模型的判断，接受数据的检验。",
-    "summary": "围绕金融时间序列进行特征构建、LightGBM 预测排序、滚动研究与基准比较。",
+    "status": "虚拟盘可演示",
+    "tagline": "从模型判断，到可复核的交易记录。",
+    "summary": "连接 ML 筛选、策略执行与交易复盘，汇总 finance trader 的虚拟盘记录，提供可切换策略的交互观察台。",
     "stack": [
-      "Python",
-      "LightGBM",
-      "Pandas",
-      "时间序列"
+        "Python",
+        "机器学习",
+        "TradingAgents",
+        "数据可视化"
     ],
     "color": "blue",
     "number": "04",
-    "metric": "ML",
-    "metricLabel": "预测与排序",
-    "second": "OOS",
-    "secondLabel": "样本外研究",
-    "problem": "策略结果会受到样本选择、参数搜索和交易成本影响。单一收益曲线无法解释模型是否有稳定的增益。",
-    "solution": "将数据准备、特征、训练与回测拆成研究步骤，比较基准与风险覆盖方案，记录不同时间区间的表现。",
+    "metric": "15",
+    "metricLabel": "账户 / 会话记录",
+    "second": "11",
+    "secondLabel": "核对源文件",
+    "problem": "模型信号如何落到可复核的执行记录？多策略账户、日内资金重置与组合迁移，让一条简单收益曲线无法完整解释系统表现。",
+    "solution": "项目包含 TradingAgents 组合与 T+0 虚拟盘、Scalper 日内执行及 V17 ML 筛选。展示层只读抽取运行数据，区分账户快照、归一重建曲线与子账户，再提供交互复盘。",
     "decisions": [
-      "LightGBM 回归预测用于横截面排序，再由规则形成组合权重。",
-      "研究显式设置训练截止时间与后续评估区间。",
-      "参数搜索结果与最终留出评估需要分开解释。"
+        "按持仓合并分批卖出，并补扣买入佣金，避免以成交条数代替完整交易表现。",
+        "组合竞赛盘只采用迁移后的标准化曲线，保留 T+0 子账户边界，避免重复汇总资金。",
+        "离线数据使用白名单字段导出，保留文件指纹；缺少估值或历史的策略明确显示数据缺口。"
     ],
-    "evidence": [
-      [
-        "研究项目",
-        "https://github.com/s1166921-png/Scalper-and-TradingAgents-B-C-C/tree/main/strategy/ai-quant-product"
-      ],
-      [
-        "模型训练实现",
-        "https://github.com/s1166921-png/Scalper-and-TradingAgents-B-C-C/blob/main/strategy/ai-quant-product/scripts/alpha_lgbm_ranker.py"
-      ]
-    ],
-    "boundary": "研究项目。展示实验方法与实现，不作收益承诺；参数筛选所用区间不能同时作为未参与选择的最终测试集。",
+    "evidence": [],
+    "boundary": "展示前向虚拟交易与离线复盘，不代表实盘收益。15 条记录含会话与子账户重叠，不等于 15 个独立账户。Scalper 曲线为已平仓净盈亏重建，不能与真实账户权益混用。",
     "flow": [
-      "数据与特征",
-      "训练",
-      "滚动研究",
-      "基准比较"
-    ]
-  },
+        "模型与策略信号",
+        "虚拟执行",
+        "成交与成本核对",
+        "可视化复盘"
+    ],
+    "experience": [
+        "在观察台切换不同策略，比较迁移后曲线与独立账户快照。",
+        "拖动日期滑块读取观测值，按盈亏筛选成交明细。",
+        "查看六个待补净值策略，以及完整的数据来源与指标口径。"
+    ],
+    "accessNote": "无需登录即可使用交互观察台；展示已导入的运行记录，非实时行情。"
+},
   {
     "id": "trader",
     "title": "Agent 决策与执行治理",

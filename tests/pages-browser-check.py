@@ -25,5 +25,17 @@ with sync_playwright() as p:
  page.get_by_role('button',name='暂停页面动画',exact=True).click();assert page.locator('.motion-stage').evaluate("e=>e.classList.contains('motion-paused')");assert card.evaluate("e=>e.style.getPropertyValue('--glow-opacity')")=='0'
  page.emulate_media(reduced_motion='reduce');assert card.evaluate("e=>getComputedStyle(e).opacity")=='1'
  page.get_by_role('link',name='个人名片',exact=True).count();assert 'This page couldn' not in page.locator('body').inner_text();page.goto(base+'projects/hs/',wait_until='networkidle');assert '进入项目' in page.locator('body').inner_text();assert not errors,errors;assert not failed,failed
+ page.goto(base+'quant/',wait_until='networkidle');page.get_by_role('heading',name='虚拟盘观察台',exact=True).wait_for()
+ assert page.locator('.q-chart svg').count()==1
+ slider=page.get_by_role('slider',name='查看曲线日期');slider.fill('0');assert '2026-07-17' in page.locator('.q-chart-caption').inner_text()
+ page.get_by_role('button',name='盈利',exact=True).click();assert page.locator('tbody tr').count()>0;assert page.locator('tbody .q-loss').count()==0
+ select=page.get_by_label('切换策略记录');select.select_option('competition');assert '-8.69%' in page.locator('.q-metrics').inner_text()
+ select.select_option('momentum-0');assert page.locator('.q-chart svg').count()==0;assert '净值待补全' in page.locator('.q-no-history').inner_text()
+ select.select_option('v17');assert page.locator('tbody tr').count()==24
+ page.set_viewport_size({'width':390,'height':844});assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+ page.screenshot(path='out/quant-mobile.png',full_page=True)
+ page.set_viewport_size({'width':1440,'height':1000});select.select_option('scalper');page.screenshot(path='out/quant-desktop.png',full_page=True)
+ page.goto(base+'projects/ml/',wait_until='networkidle');page.get_by_role('link',name='交互演示 打开虚拟盘观察台 切换策略 · 曲线复盘 · 成交明细').click();page.get_by_role('heading',name='虚拟盘观察台',exact=True).wait_for()
+ assert not errors,errors;assert not failed,failed
  print('PASS: browser hydration, lightbox, mobile width, homepage and detail routes; no resource failures');b.close()
 server.shutdown()

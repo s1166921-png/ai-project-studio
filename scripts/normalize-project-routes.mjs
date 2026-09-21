@@ -13,3 +13,7 @@ for(const name of await readdir(root)){
 await mkdir('dist/client/profile',{recursive:true});
 await copyFile('dist/client/profile.html','dist/client/profile/index.html');
 await copyFile('dist/client/profile.rsc','dist/client/profile/index.rsc');
+
+await mkdir('dist/client/quant',{recursive:true});
+await copyFile('dist/client/quant.html','dist/client/quant/index.html');
+await copyFile('dist/client/quant.rsc','dist/client/quant/index.rsc');
