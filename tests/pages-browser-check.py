@@ -20,7 +20,10 @@ with sync_playwright() as p:
  page.set_viewport_size({'width':390,'height':844});page.reload(wait_until='networkidle');assert page.evaluate('document.documentElement.scrollWidth <= innerWidth');assert page.locator('img').evaluate_all('(imgs)=>imgs.filter(i=>i.complete&&i.naturalWidth===0).length')==0
  page.goto(base,wait_until='networkidle');
  assert page.locator('.hero-bottom,.expertise-strip').count()==0
- assert page.locator('[data-motion-surface]').count()==9
+ quant_card=page.locator('.tool-card').filter(has=page.get_by_role('heading',name='AI 量化交易',exact=True))
+ assert quant_card.get_by_role('link',name='虚拟盘演示').get_attribute('href')=='./quant/'
+ assert quant_card.get_by_role('link',name='项目详情').get_attribute('href')=='./projects/ml/'
+ assert page.locator('[data-motion-surface]').count()==10
  page.set_viewport_size({'width':1280,'height':850});card=page.locator('.tool-card').first;card.scroll_into_view_if_needed();page.wait_for_timeout(1000);card.hover();page.mouse.move(card.bounding_box()['x']+45,card.bounding_box()['y']+50);page.wait_for_timeout(400);assert card.evaluate("e=>e.style.getPropertyValue('--glow-opacity')")=='1'
  page.get_by_role('button',name='暂停页面动画',exact=True).click();assert page.locator('.motion-stage').evaluate("e=>e.classList.contains('motion-paused')");assert card.evaluate("e=>e.style.getPropertyValue('--glow-opacity')")=='0'
  page.emulate_media(reduced_motion='reduce');assert card.evaluate("e=>getComputedStyle(e).opacity")=='1'

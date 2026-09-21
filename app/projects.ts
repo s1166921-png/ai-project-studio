@@ -518,4 +518,4 @@ for(const project of projects)Object.assign(project,toolDetails[project.id]||{})
 const complianceIndex=projects.findIndex(p=>p.id==='compliance');
 if(complianceIndex>=0)projects.splice(complianceIndex,1);
 projects.splice(4,0,{id:'compliance',title:'财税合规官网与 AI 咨询',en:'A business website, connected to intelligence.',category:'AI 应用',status:'官网已上线',tagline:'让业务入口与 AI 服务衔接起来。',summary:'面向跨境企业的财税合规官网，组织服务体系、专业咨询与 AI 财税管家入口，连接品牌展示和客户咨询。',stack:['Next.js','React','Tailwind','Cloudflare'],problem:'业务方需要比较不同品牌表达，同时让访问者从了解服务自然进入具体业务咨询。',solution:'在统一业务内容上构建顾问型、科技型和东方品牌型三套页面，通过咨询面板和业务标识连接客服知识范围。',decisions:['以共享业务内容支持三种视觉提案，方便比较与迭代。','客服挂件传入业务标识，减少访问者重复说明咨询背景。','把官网展示、咨询入口和客服回答组织为同一条服务路径。'],flow:['了解服务','选择咨询场景','业务知识路由','咨询与人工跟进'],audience:'跨境企业客户 · 财税业务团队',experience:['查看跨境财税服务体系','了解服务方法与专业咨询入口','查看 AI 财税管家入口'],evidence:[],links:[{label:'打开财税合规官网',url:'https://yuan.meiouyuncang.com/',kind:'在线官网',note:'美鸥元 · 全球财税合规服务'}],accessNote:'正式官网可直接访问；演示时可从服务体系与 AI 财税管家入口开始。',boundary:'正式官网与前期视觉提案属于同一项目的不同阶段；案例展示网站与咨询接入工程，不代表财税服务结果承诺。'});
-export const toolIds = ['compliance','yundai','hs','geo','news'];
+export const toolIds = ['compliance','yundai','hs','geo','news','ml'];
