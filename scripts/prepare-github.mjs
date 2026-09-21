@@ -10,7 +10,7 @@ async function rewrite(dir) {
     if (entry.isDirectory()) await rewrite(path);
     else if (/\.(html|js|css|json|rsc)$/.test(entry.name)) {
       const content = await readFile(path, 'utf8');
-      await writeFile(path, content.replaceAll('/_next/', '/ai-project-studio/_next/'));
+      await writeFile(path, content.replaceAll('/_next/', '/ai-project-studio/_next/').replace(/(["'`])_next\//g, '$1ai-project-studio/_next/'));
     }
   }
 }
